@@ -1,12 +1,12 @@
 describe('Square class', function(){
-  case('It has dimension', function(){
+  summary('It has dimension', function(){
     it('has a length', function(){
-      s = new Square();
-      expectEquality(s.size(10), 10);
+      s = new Square(10);
+      expectEquality(s.size, 10);
     });
     it('has an area', function(){
-      s = new Square();
-      expectEquality(s.area(10), 100);
+      s = new Square(10);
+      expectEquality(s.area(), 100);
     });
   });
 });
