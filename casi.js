@@ -2,23 +2,33 @@
 
 
 function describe(desc, fn){
-  console.log(desc);
+  console.log(`%c${desc}`, 'color: blue');
   fn();
 };
 
 function summary(desc, fn){
-  console.log(desc);
-  fn();
+  describe(' ' + desc, fn);
 };
 
 function it(msg, fn){
-  describe(msg, fn)
+  describe(' ' + msg, fn)
 };
 
 function expectEquality(provided, output){
   if(provided === output){
-    console.log('passed');
+    console.log('%c  passed', "color: green");
   } else {
-    console.log('failed');
+    console.log('%c  failed', "color: red");
   }
 };
+
+function expectError(provided, output){
+  var errMsg
+  try {
+    provided()
+  }
+  catch(err) {
+    errMsg = err.message;
+  }
+  expectEquality(errMsg, output)
+}

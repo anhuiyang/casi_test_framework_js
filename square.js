@@ -1,4 +1,4 @@
-class Square {
+  class Square {
     constructor(size) {
         if (isNaN(size)) {
             throw new Error('argument is not a number');
